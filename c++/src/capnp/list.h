@@ -24,6 +24,7 @@
 #include "layout.h"
 #include "orphan.h"
 #include <initializer_list>
+#include <iterator>
 
 CAPNP_BEGIN_HEADER
 
@@ -49,7 +50,7 @@ private:
 // By default this isn't compatible with STL algorithms. To add STL support either define
 // KJ_STD_COMPAT at the top of your compilation unit or include capnp/compat/std-iterator.h.
 template <typename Container, typename Element>
-class IndexingIterator {
+class IndexingIterator: std::input_iterator_tag {
 public:
   IndexingIterator() = default;
 
