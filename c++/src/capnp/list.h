@@ -54,6 +54,8 @@ class IndexingIterator: std::input_iterator_tag {
 public:
   IndexingIterator() = default;
 
+  using value_type = Element;
+
   inline Element operator*() const { return (*container)[index]; }
   inline TemporaryPointer<Element> operator->() const {
     return TemporaryPointer<Element>((*container)[index]);
